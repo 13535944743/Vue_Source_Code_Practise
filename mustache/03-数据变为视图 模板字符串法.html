@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模板字符串法</title>
+</head>
+
+<body>
+  <ul id="list"></ul>
+  <script>
+    const arr = [
+      {
+        'name': 'clz',
+        'age': 21,
+        'sex': '男'
+      },
+      {
+        'name': 'cc',
+        'age': 21,
+        'sex': '女'
+      },
+      {
+        'name': '赤蓝紫',
+        'age': 21,
+        'sex': '男'
+      }
+    ]
+
+    for (let i = 0; i < arr.length; i++) {
+      list.innerHTML += `
+      <li>
+          <div class="hd">${arr[i].name} 的基本信息</div>
+          <div class="bd">
+            <p>name: ${arr[i].name} </p>
+            <p>age: ${arr[i].age} </p>
+            <p>sex: ${arr[i].sex} </p>
+          </div>
+        </li>
+      `
+    }
+  </script>
+</body>
+
+</html>

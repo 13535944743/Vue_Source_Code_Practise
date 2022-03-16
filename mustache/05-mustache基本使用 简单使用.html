@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mustache简单使用</title>
+</head>
+
+<body>
+  <div class="container"></div>
+
+  <script src="./lib/mustache.js"></script>
+  <script>
+    // console.log(Mustache)
+
+    const templateStr = `
+      <h2>我是{{name}}, 年龄为{{age}}岁</h2>
+    `
+    const data = {
+      name: 'clz',
+      age: 21
+    }
+
+    const domStr = Mustache.render(templateStr, data)
+
+    document.getElementsByClassName('container')[0].innerHTML = domStr
+  </script>
+</body>
+
+</html>

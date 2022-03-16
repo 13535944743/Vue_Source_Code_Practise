@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>纯DOM法</title>
+</head>
+
+<body>
+  <ul id="list"></ul>
+  <script>
+    const arr = [
+      {
+        'name': 'clz',
+        'age': 21,
+        'sex': '男'
+      },
+      {
+        'name': 'cc',
+        'age': 21,
+        'sex': '女'
+      },
+      {
+        'name': '赤蓝紫',
+        'age': 21,
+        'sex': '男'
+      }
+    ]
+
+    const list = document.getElementById('list')
+
+    for (let i = 0; i < arr.length; i++) {
+      const li = document.createElement('li')    // 新建li元素
+
+      const bd = document.createElement('div')
+      bd.className = 'bd'
+      bd.innerText = arr[i].name + '的基本信息'
+      li.appendChild(bd)
+
+      const hd = document.createElement('div')
+      hd.className = 'hd'
+
+      for (const item in arr[i]) {
+        const p = document.createElement('p')
+        p.innerText = item + ': ' + arr[i][item]
+        hd.appendChild(p)
+      }
+
+      li.appendChild(hd)
+      list.appendChild(li)
+    }
+  </script>
+</body>
+
+</html>

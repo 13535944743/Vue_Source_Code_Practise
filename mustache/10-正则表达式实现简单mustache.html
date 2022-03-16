@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正则表达式实现简单mustache</title>
+</head>
+
+<body>
+  <div class="container"></div>
+  <script>
+    const templateStr = `
+      <h2>我是{{name}}, 年龄为{{age}}岁</h2>
+    `
+    const data = {
+      name: 'clz',
+      age: 21
+    }
+
+    const render = (templateStr, data) => {
+      return templateStr.replace(/\{\{(\w+)\}\}/g, function (match, p1, offset, string) {
+        return data[p1]  // 把正则所匹配的内容替换成return的内容
+      })
+    }
+
+    const domStr = render(templateStr, data)
+    document.querySelector('.container').innerHTML = domStr
+  </script>
+</body>
+
+</html>

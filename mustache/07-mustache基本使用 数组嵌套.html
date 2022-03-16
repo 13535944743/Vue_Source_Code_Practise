@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组嵌套</title>
+</head>
+
+<body>
+  <div class="container"></div>
+
+  <script src="./lib/mustache.js"></script>
+  <script>
+
+    const templateStr = `
+      <ul>
+        {{#arr}}
+          <li>
+            {{name}}喜欢的颜色是:
+            <ol>
+              {{#colors}}
+                <li>{{.}}</li>
+              {{/colors}}
+            </ol>
+          </li>
+        {{/arr}}
+      </ul>
+    `
+    const data = {
+      arr: [
+        {
+          name: 'clz',
+          colors: ['red', 'blue', 'purple']
+        },
+        {
+          name: 'cc',
+          colors: ['white', 'red', 'black']
+        }
+      ]
+    }
+
+    const domStr = Mustache.render(templateStr, data)
+
+    document.getElementsByClassName('container')[0].innerHTML = domStr
+  </script>
+</body>
+
+</html>
