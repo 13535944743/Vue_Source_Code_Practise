@@ -25,6 +25,7 @@ export default function defineReactive(data, key, val) {
         dep.depend()
 
         if (childOb) {
+          // 如果有子元素
           childOb.dep.depend()
         }
       }
